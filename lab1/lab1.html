@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Захист інформації</title>
+
+    <style>
+      form :not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      input {
+        display: block;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">Назад на головну сторінку</a>
+
+    <h1>Тема №1 - Шифри заміни</h1>
+
+    <form name="additiveForm">
+      <fieldset>
+        <legend>Адитивний</legend>
+
+        <div>
+          <label>Ключ</label>
+          <input name="key" type="number" min="1" onchange="Z.calculateAdditive()">
+        </div>
+
+        <div>
+          <label>Значення</label>
+          <input name="value" onchange="Z.calculateAdditive()">
+        </div>
+
+        <div>
+          <label>Результат</label>
+          <input name="result" disabled>
+        </div>
+      </fieldset>
+    </form>
+
+    <form name="multiplicativeForm">
+      <fieldset>
+        <legend>Мультиплікативний</legend>
+
+        <div class="field-group">
+          <label>Ключ</label>
+          <input name="key" type="number" min="1" onchange="Z.calculateMultiplicative()">
+        </div>
+
+        <div>
+          <label>Значення</label>
+          <input name="value" onchange="Z.calculateMultiplicative()">
+        </div>
+
+        <div>
+          <label>Результат</label>
+          <input name="result" disabled>
+        </div>
+      </fieldset>
+    </form>
+
+
+    <form name="affineForm">
+      <fieldset>
+        <legend>Аффінний</legend>
+
+        <div>
+          <label>Ключ 1</label>
+          <input name="key1" type="number" min="1" onchange="Z.calculateAffine()">
+        </div>
+
+        <div>
+          <label>Ключ 2</label>
+          <input name="key2" type="number" min="1" onchange="Z.calculateAffine()">
+        </div>
+
+        <div>
+          <label>Значення</label>
+          <input name="value" onchange="Z.calculateAffine()">
+        </div>
+
+        <div>
+          <label>Результат</label>
+          <input name="result" disabled>
+        </div>
+      </fieldset>
+    </form>
+
+    <form name="reversedAffineForm">
+      <fieldset>
+        <legend>Обернений аффінний</legend>
+
+        <div>
+          <label>Ключ 1</label>
+          <input name="key1" type="number" min="1" disabled>
+        </div>
+
+        <div>
+          <label>Ключ 2</label>
+          <input name="key2" type="number" min="1" disabled>
+        </div>
+
+        <div>
+          <label>Значення</label>
+          <input name="value" disabled>
+        </div>
+
+        <div>
+          <label>Результат</label>
+          <input name="result" disabled>
+        </div>
+      </fieldset>
+    </form>
+
+    <script src="lab1.js"></script>
+  </body>
+</html>
