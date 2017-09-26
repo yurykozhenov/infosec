@@ -1,43 +1,72 @@
 window.Cipher1 = function() {
   class Cipher1 {
-    static additive(value, key) {
-      return this._transform(value, char => ALPHABET[(ALPHABET.indexOf(char) + key) % ALPHABET_LENGTH]);
+    static encryptAdditive(value, key, alphabet) {
+      return this._transform(
+        value,
+        char => alphabet[(alphabet.indexOf(char) + key) % alphabet.length],
+        alphabet
+      );
     }
 
-    static multiplicative(value, key) {
-      return this._transform(value, char => ALPHABET[(ALPHABET.indexOf(char) * key) % ALPHABET_LENGTH]);
+    static decryptAdditive(value, key, alphabet) {
+      return this.encryptAdditive(value, key, alphabet);
     }
 
-    static affine(value, key1, key2) {
-      return this._transform(value, char => ALPHABET[(ALPHABET.indexOf(char) * key1 + key2) % ALPHABET_LENGTH]);
+    static encryptMultiplicative(value, key, alphabet) {
+      return this._transform(
+        value,
+        char => alphabet[(alphabet.indexOf(char) * key) % alphabet.length],
+        alphabet
+      );
     }
 
-    static reversedAffine(value, key1, key2) {
-      if (this.inverseMultiplicativeKey(key1) == null) {
+    static decryptMultiplicative(value, key, alphabet) {
+      if (this.inverseMultiplicativeKey(key, alphabet) == null) {
         return '-';
       }
 
-      return this._transform(value, char => ALPHABET[((ALPHABET.indexOf(char) + key2) * key1) % ALPHABET_LENGTH]);
+      return this.encryptMultiplicative(value, key, alphabet);
     }
 
-    static _transform(value, transformFunc) {
-      return Array.from(value.toUpperCase())
-        .filter(char => ALPHABET.indexOf(char) !== -1)
-        .map(char => transformFunc(char)).join('');
+    static encryptAffine(value, key1, key2, alphabet) {
+      return this._transform(
+        value,
+        char => alphabet[(alphabet.indexOf(char) * key1 + key2) % alphabet.length],
+        alphabet
+      );
     }
 
-    static inverseAdditiveKey(key) {
-      return ALPHABET_LENGTH - (key % ALPHABET_LENGTH);
+    static decryptAffine(value, key1, key2, alphabet) {
+      if (this.inverseMultiplicativeKey(key1, alphabet) == null) {
+        return '-';
+      }
+
+      return this._transform(
+        value,
+        char => alphabet[((alphabet.indexOf(char) + key2) * key1) % alphabet.length],
+        alphabet
+      );
     }
 
-    static inverseMultiplicativeKey(key) {
-      for (let i = 1; i <= ALPHABET_LENGTH; i++) {
-        if ((i * key) % ALPHABET_LENGTH === 1) {
+    static inverseAdditiveKey(key, alphabet) {
+      return alphabet.length - (key % alphabet.length);
+    }
+
+    static inverseMultiplicativeKey(key, alphabet) {
+      for (let i = 1; i <= alphabet.length; i++) {
+        if ((i * key) % alphabet.length === 1) {
           return i;
         }
       }
 
       return null;
+    }
+
+    static _transform(value, transformFunc, alphabet) {
+      return Array.from(value)
+        .filter(char => alphabet.indexOf(char) !== -1)
+        .map(char => transformFunc(char))
+        .join('');
     }
   }
 
