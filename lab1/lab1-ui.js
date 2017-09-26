@@ -1,4 +1,4 @@
-window.Z = (function() {
+window.L1 = (function() {
   function init() {
     const variant = 5;
     const name = 'KOZHENOVYURIISAADOVYCH';
@@ -26,7 +26,7 @@ window.Z = (function() {
     const value = form.value.value;
     const key = Number(form.key.value);
 
-    form.result.value = Cipher.additive(value, key);
+    form.result.value = Cipher1.additive(value, key);
   }
 
   function encryptMultiplicative() {
@@ -34,7 +34,7 @@ window.Z = (function() {
     const value = form.value.value;
     const key = Number(form.key.value);
 
-    form.result.value = Cipher.multiplicative(value, key);
+    form.result.value = Cipher1.multiplicative(value, key);
   }
 
   function encryptAffine() {
@@ -43,7 +43,7 @@ window.Z = (function() {
     const key1 = Number(form.key1.value);
     const key2 = Number(form.key2.value);
 
-    form.result.value = Cipher.affine(value, key1, key2);
+    form.result.value = Cipher1.affine(value, key1, key2);
   }
 
   function decryptAdditive() {
@@ -53,7 +53,7 @@ window.Z = (function() {
     const result = [];
 
     for (let i = 0; i < ALPHABET_LENGTH; i++) {
-      result.push(`${i}: ${Cipher.additive(value, i)}`);
+      result.push(`${i}: ${Cipher1.additive(value, i)}`);
     }
 
     form.result.value = result.join('\n');
@@ -66,7 +66,7 @@ window.Z = (function() {
     const result = [];
 
     for (let i = 0; i < ALPHABET_LENGTH; i++) {
-      result.push(`${i}: ${Cipher.multiplicative(value, i)}`);
+      result.push(`${i}: ${Cipher1.multiplicative(value, i)}`);
     }
 
     form.result.value = result.join('\n');
@@ -80,7 +80,7 @@ window.Z = (function() {
 
     for (let i = 0; i < ALPHABET_LENGTH; i++) {
       for (let j = 0; j < ALPHABET_LENGTH; j++) {
-        result.push(`${i}, ${j}: ${Cipher.reversedAffine(value, i, j)}`);
+        result.push(`${i}, ${j}: ${Cipher1.reversedAffine(value, i, j)}`);
       }
     }
 

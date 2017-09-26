@@ -1,5 +1,5 @@
-window.Cipher = function() {
-  class Cipher {
+window.Cipher1 = function() {
+  class Cipher1 {
     static additive(value, key) {
       return this._transform(value, char => ALPHABET[(ALPHABET.indexOf(char) + key) % ALPHABET_LENGTH]);
     }
@@ -14,7 +14,7 @@ window.Cipher = function() {
 
     static reversedAffine(value, key1, key2) {
       if (this.inverseMultiplicativeKey(key1) == null) {
-        return 'Impossible to decrypt';
+        return '-';
       }
 
       return this._transform(value, char => ALPHABET[((ALPHABET.indexOf(char) + key2) * key1) % ALPHABET_LENGTH]);
@@ -41,5 +41,5 @@ window.Cipher = function() {
     }
   }
 
-  return Cipher;
+  return Cipher1;
 }();
