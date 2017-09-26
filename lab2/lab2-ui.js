@@ -1,3 +1,5 @@
+import { Cipher2 } from './lab2-cipher.js';
+
 window.L2 = (function() {
   const PLAYFAIR_KEY = [
     ['L', 'G', 'D', 'B', 'A'],

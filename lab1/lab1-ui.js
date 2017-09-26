@@ -1,3 +1,5 @@
+import { Cipher1 } from './lab1-cipher.js';
+
 window.L1 = (function() {
   const ALPHABET = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
   const ALPHABET_LENGTH = ALPHABET.length;

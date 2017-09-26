@@ -1,5 +1,5 @@
-export class Cipher2 {
-  static encryptPlayfair(text, key, placeholder) {
+export class Playfair {
+  static encrypt(text, key, placeholder) {
     const result = [];
     const normalizedText = this._normalizeEncryptPlayfairInput(text, placeholder);
 
@@ -28,7 +28,7 @@ export class Cipher2 {
     return result.join('');
   }
 
-  static decryptPlayfair(text, key, placeholder) {
+  static decrypt(text, key, placeholder) {
     const result = [];
 
     for (let i = 0; i < text.length; i += 2) {
@@ -54,27 +54,6 @@ export class Cipher2 {
     }
 
     return result.join('').replace(new RegExp(placeholder, 'g'), '');
-  }
-
-  static encryptDoubleSquare(text, key1, key2, placeholder) {
-    const result = [];
-
-    if (text.length % 2 !== 0) {
-      text += placeholder;
-    }
-
-    for (let i = 0; i < text.length; i += 2) {
-      const index1 = this._matrixIndexOf(text[i], key1);
-      const index2 = this._matrixIndexOf(text[i+1], key2);
-
-      result.push(key2[index1[0]][index2[1]], key1[index2[0]][index1[1]]);
-    }
-
-    return result.join('');
-  }
-
-  static decryptDoubleSquare(text, key1, key2, placeholder) {
-    return this.encryptDoubleSquare(text, key2, key1, placeholder);
   }
 
   static _normalizeEncryptPlayfairInput(text, placeholder) {

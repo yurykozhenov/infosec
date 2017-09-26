@@ -1,3 +1,5 @@
+import { Vigenere } from '../ciphers/vigenere';
+
 window.L3 = (function() {
   const ALPHABET = 'АБВГДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ ';
 
@@ -25,7 +27,7 @@ window.L3 = (function() {
     const value = form.value.value.toUpperCase();
     const key = form.key.value.toUpperCase();
 
-    form.result.value = Cipher3.encryptVigenere(value, key, ALPHABET);
+    form.result.value = Vigenere.encrypt(value, key, ALPHABET);
   }
 
   function decryptVigenere() {
@@ -33,7 +35,7 @@ window.L3 = (function() {
     const value = form.value.value.toUpperCase();
     const key = form.key.value.toUpperCase();
 
-    form.result.value = Cipher3.decryptVigenere(value, key, ALPHABET);
+    form.result.value = Vigenere.decrypt(value, key, ALPHABET);
   }
 
   init();
