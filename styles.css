@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+form  {
+  background: #e2e2e2;
+  border: 1px dashed #aeaeae;
+  padding: 16px;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+main > section > section {
+  display: flex;
+  flex-direction: row;
+}
+
+main > section > section > article {
+  flex: 1 0 auto;
+}
+
+main > section > section > article:not(:last-child) {
+  margin-right: 16px;
+}
+
+main > section > section > article > form {
+  height: 100%;
+}
+
+main > section > section > article > form > div:not(:last-child) {
+  margin-bottom: 8px;
+}

@@ -5,117 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Захист інформації</title>
 
-    <style>
-      form :not(:last-child) {
-        margin-bottom: 8px;
-      }
-
-      input {
-        display: block;
-        width: 300px;
-      }
-    </style>
+    <link rel="stylesheet" href="../styles.css">
   </head>
+
   <body>
     <a href="../index.html">Назад на головну сторінку</a>
 
     <h1>Тема №1 - Шифри заміни</h1>
 
-    <form name="additiveForm">
-      <fieldset>
-        <legend>Адитивний</legend>
+    <main>
+      <section>
+        <h2>Адитивний</h2>
 
-        <div>
-          <label>Ключ</label>
-          <input name="key" type="number" min="1" onchange="Z.calculateAdditive()">
-        </div>
+        <section>
+          <article>
+            <form name="encryptAdditiveForm">
+              <h3>Зашифрувати</h3>
 
-        <div>
-          <label>Значення</label>
-          <input name="value" onchange="Z.calculateAdditive()">
-        </div>
+              <div>
+                <label>Ключ</label>
+                <input name="key" type="number" min="1" onchange="Z.encryptAdditive()">
+              </div>
 
-        <div>
-          <label>Результат</label>
-          <input name="result" disabled>
-        </div>
-      </fieldset>
-    </form>
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="Z.encryptAdditive()">
+              </div>
 
-    <form name="multiplicativeForm">
-      <fieldset>
-        <legend>Мультиплікативний</legend>
+              <div>
+                <label>Результат</label>
+                <input name="result" disabled>
+              </div>
+            </form>
+          </article>
 
-        <div class="field-group">
-          <label>Ключ</label>
-          <input name="key" type="number" min="1" onchange="Z.calculateMultiplicative()">
-        </div>
+          <article>
+            <form name="decryptAdditiveForm">
+              <h3>Розшифрувати</h3>
 
-        <div>
-          <label>Значення</label>
-          <input name="value" onchange="Z.calculateMultiplicative()">
-        </div>
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="Z.decryptAdditive()">
+              </div>
 
-        <div>
-          <label>Результат</label>
-          <input name="result" disabled>
-        </div>
-      </fieldset>
-    </form>
+              <div>
+                <label>Результат</label>
+                <textarea name="result" disabled></textarea>
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
 
+      <section>
+        <h2>Мультиплікативний</h2>
 
-    <form name="affineForm">
-      <fieldset>
-        <legend>Аффінний</legend>
+        <section>
+          <article>
+            <form name="encryptMultiplicativeForm">
+              <h3>Зашифрувати</h3>
 
-        <div>
-          <label>Ключ 1</label>
-          <input name="key1" type="number" min="1" onchange="Z.calculateAffine()">
-        </div>
+              <div>
+                <label>Ключ</label>
+                <input name="key" type="number" min="1" onchange="Z.encryptMultiplicative()">
+              </div>
 
-        <div>
-          <label>Ключ 2</label>
-          <input name="key2" type="number" min="1" onchange="Z.calculateAffine()">
-        </div>
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="Z.encryptMultiplicative()">
+              </div>
 
-        <div>
-          <label>Значення</label>
-          <input name="value" onchange="Z.calculateAffine()">
-        </div>
+              <div>
+                <label>Результат</label>
+                <input name="result" disabled>
+              </div>
+            </form>
+          </article>
 
-        <div>
-          <label>Результат</label>
-          <input name="result" disabled>
-        </div>
-      </fieldset>
-    </form>
+          <article>
+            <form name="decryptMultiplicativeForm">
+              <h3>Розшифрувати</h3>
 
-    <form name="reversedAffineForm">
-      <fieldset>
-        <legend>Обернений аффінний</legend>
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="Z.decryptMultiplicative()">
+              </div>
 
-        <div>
-          <label>Ключ 1</label>
-          <input name="key1" type="number" min="1" disabled>
-        </div>
+              <div>
+                <label>Результат</label>
+                <textarea name="result" disabled></textarea>
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
 
-        <div>
-          <label>Ключ 2</label>
-          <input name="key2" type="number" min="1" disabled>
-        </div>
+      <section>
+        <h2>Аффінний</h2>
 
-        <div>
-          <label>Значення</label>
-          <input name="value" disabled>
-        </div>
+        <section>
+          <article>
+            <form name="encryptAffineForm">
+              <h3>Зашифрувати</h3>
 
-        <div>
-          <label>Результат</label>
-          <input name="result" disabled>
-        </div>
-      </fieldset>
-    </form>
+              <div>
+                <label>Ключ 1</label>
+                <input name="key1" type="number" min="1" onchange="Z.encryptAffine()">
+              </div>
 
-    <script src="lab1.js"></script>
+              <div>
+                <label>Ключ 2</label>
+                <input name="key2" type="number" min="1" onchange="Z.encryptAffine()">
+              </div>
+
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="Z.encryptAffine()">
+              </div>
+
+              <div>
+                <label>Результат</label>
+                <input name="result" disabled>
+              </div>
+            </form>
+          </article>
+
+          <article>
+            <form name="decryptAffineForm">
+              <h3>Розшифрувати</h3>
+
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="Z.decryptAffine()">
+              </div>
+
+              <div>
+                <label>Результат</label>
+                <textarea name="result" disabled></textarea>
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="../constants.js"></script>
+    <script src="lab1-cipher.js"></script>
+    <script src="lab1-ui.js"></script>
   </body>
 </html>
