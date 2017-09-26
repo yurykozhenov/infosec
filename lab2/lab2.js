@@ -1,4 +1,5 @@
-import { Cipher2 } from './lab2-cipher.js';
+import { Playfair } from '../ciphers/playfair.js';
+import { DoubleSquare } from '../ciphers/double-square.js';
 
 window.L2 = (function() {
   const PLAYFAIR_KEY = [
@@ -44,7 +45,7 @@ window.L2 = (function() {
     const form = document.encryptPlayfairForm;
     const value = form.value.value;
 
-    form.result.value = Cipher2.encryptPlayfair(
+    form.result.value = Playfair.encrypt(
       value.toUpperCase().replace(/ /g, ''),
       PLAYFAIR_KEY,
       PLAYFAIR_PLACEHOLDER
@@ -55,7 +56,7 @@ window.L2 = (function() {
     const form = document.encryptDoubleSquareForm;
     const value = form.value.value;
 
-    form.result.value = Cipher2.encryptDoubleSquare(
+    form.result.value = DoubleSquare.encrypt(
       value.toUpperCase(),
       DOUBLE_SQUARE_KEY_1,
       DOUBLE_SQUARE_KEY_2,
@@ -67,7 +68,7 @@ window.L2 = (function() {
     const form = document.decryptPlayfairForm;
     const value = form.value.value;
 
-    form.result.value = Cipher2.decryptPlayfair(
+    form.result.value = Playfair.decrypt(
       value.toUpperCase().replace(/ /g, ''),
       PLAYFAIR_KEY,
       PLAYFAIR_PLACEHOLDER
@@ -78,7 +79,7 @@ window.L2 = (function() {
     const form = document.decryptDoubleSquareForm;
     const value = form.value.value;
 
-    form.result.value = Cipher2.decryptDoubleSquare(
+    form.result.value = DoubleSquare.decrypt(
       value.toUpperCase(),
       DOUBLE_SQUARE_KEY_1,
       DOUBLE_SQUARE_KEY_2,

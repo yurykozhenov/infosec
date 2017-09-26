@@ -1,4 +1,4 @@
-import { Vigenere } from '../ciphers/vigenere';
+import { Vigenere } from '../ciphers/vigenere.js';
 
 window.L3 = (function() {
   const ALPHABET = 'АБВГДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ ';

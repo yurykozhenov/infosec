@@ -1,4 +1,6 @@
-import { Cipher1 } from './lab1-cipher.js';
+import { Additive } from '../ciphers/additive.js';
+import { Multiplicative } from '../ciphers/multiplicative.js';
+import { Affine } from '../ciphers/affine.js';
 
 window.L1 = (function() {
   const ALPHABET = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
@@ -31,7 +33,7 @@ window.L1 = (function() {
     const value = form.value.value.toUpperCase();
     const key = Number(form.key.value);
 
-    form.result.value = Cipher1.encryptAdditive(value, key, ALPHABET);
+    form.result.value = Additive.encrypt(value, key, ALPHABET);
   }
 
   function encryptMultiplicative() {
@@ -39,7 +41,7 @@ window.L1 = (function() {
     const value = form.value.value.toUpperCase();
     const key = Number(form.key.value);
 
-    form.result.value = Cipher1.encryptMultiplicative(value, key, ALPHABET);
+    form.result.value = Multiplicative.encrypt(value, key, ALPHABET);
   }
 
   function encryptAffine() {
@@ -48,7 +50,7 @@ window.L1 = (function() {
     const key1 = Number(form.key1.value);
     const key2 = Number(form.key2.value);
 
-    form.result.value = Cipher1.encryptAffine(value, key1, key2, ALPHABET);
+    form.result.value = Affine.encrypt(value, key1, key2, ALPHABET);
   }
 
   function decryptAdditive() {
@@ -58,7 +60,7 @@ window.L1 = (function() {
     const result = [];
 
     for (let i = 0; i < ALPHABET_LENGTH; i++) {
-      result.push(`${i}: ${Cipher1.decryptAdditive(value, i, ALPHABET)}`);
+      result.push(`${i}: ${Additive.decrypt(value, i, ALPHABET)}`);
     }
 
     form.result.value = result.join('\n');
@@ -71,7 +73,7 @@ window.L1 = (function() {
     const result = [];
 
     for (let i = 0; i < ALPHABET_LENGTH; i++) {
-      result.push(`${i}: ${Cipher1.decryptMultiplicative(value, i, ALPHABET)}`);
+      result.push(`${i}: ${Multiplicative.decrypt(value, i, ALPHABET)}`);
     }
 
     form.result.value = result.join('\n');
@@ -85,7 +87,7 @@ window.L1 = (function() {
 
     for (let i = 0; i < ALPHABET_LENGTH; i++) {
       for (let j = 0; j < ALPHABET_LENGTH; j++) {
-        result.push(`${i}, ${j}: ${Cipher1.decryptAffine(value, i, j, ALPHABET)}`);
+        result.push(`${i}, ${j}: ${Affine.decrypt(value, i, j, ALPHABET)}`);
       }
     }
 
