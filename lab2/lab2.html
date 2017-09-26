@@ -4,10 +4,95 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Захист інформації</title>
+
+    <link rel="stylesheet" href="../styles.css">
   </head>
+
   <body>
     <a href="../index.html">Назад на головну сторінку</a>
 
     <h1>Тема №2 - Шифр Плейфера та подвійного квадрата</h1>
+
+    <main>
+      <section>
+        <h2>Шифр Плейфера</h2>
+
+        <section>
+          <article>
+            <form name="encryptPlayfairForm">
+              <h3>Зашифрувати</h3>
+
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="L2.encryptPlayfair()">
+              </div>
+
+              <div>
+                <label>Результат</label>
+                <input name="result" disabled>
+              </div>
+            </form>
+          </article>
+
+          <article>
+            <form name="decryptPlayfairForm">
+              <h3>Розшифрувати</h3>
+
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="L2.decryptPlayfair()">
+              </div>
+
+              <div>
+                <label>Результат</label>
+                <textarea name="result" disabled></textarea>
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
+
+      <section>
+        <h2>Шифр подвійного квадрата</h2>
+
+        <section>
+          <article>
+            <form name="encryptDoubleSquareForm">
+              <h3>Зашифрувати</h3>
+
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="L2.encryptDoubleSquare()">
+              </div>
+
+              <div>
+                <label>Результат</label>
+                <input name="result" disabled>
+              </div>
+            </form>
+          </article>
+
+          <article>
+            <form name="decryptDoubleSquareForm">
+              <h3>Розшифрувати</h3>
+
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="L2.decryptDoubleSquare()">
+              </div>
+
+              <div>
+                <label>Результат</label>
+                <textarea name="result" disabled></textarea>
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="../constants.js"></script>
+    <script src="./lab2-cipher.js"></script>
+    <script src="./lab2-ui.js"></script>
   </body>
 </html>
