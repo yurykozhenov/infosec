@@ -41,3 +41,12 @@ main > section > section > article > form {
 main > section > section > article > form > div:not(:last-child) {
   margin-bottom: 8px;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 4px;
+  border: 1px solid #999999;
+}
