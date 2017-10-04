@@ -9,6 +9,10 @@ window.L3 = (function() {
     const decryptVigenereForm = document.decryptVigenereForm;
     decryptVigenereForm.key.value = encryptVigenereForm.key.value;
 
+    document.querySelector('#cipherTable').innerHTML = Cipher3._getCipherTable('КЛЮЧ', ALPHABET)
+    .map(arr => `<tr>${arr.map(char => `<td>${char}</td>`).join('')}</tr>`)
+    .join('');
+
     document.querySelector('#table').innerHTML = Cipher3._getVigenereTable(ALPHABET)
       .map(arr => `<tr>${arr.map(char => `<td>${char}</td>`).join('')}</tr>`)
       .join('');
