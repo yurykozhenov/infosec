@@ -1,7 +1,7 @@
 export class Vigenere {
   static encrypt(input, key, alphabet) {
     const output = [];
-    const cipherTable = this._getCipherTable(key, alphabet);
+    const cipherTable = this.getCipherTable(key, alphabet);
 
     let cycle = 1;
 
@@ -19,7 +19,7 @@ export class Vigenere {
 
   static decrypt(input, key, alphabet) {
     const output = [];
-    const cipherTable = this._getCipherTable(key, alphabet);
+    const cipherTable = this.getCipherTable(key, alphabet);
 
     let cycle = 1;
 
@@ -35,9 +35,9 @@ export class Vigenere {
     return output.join('');
   }
 
-  static _getCipherTable(key, alphabet) {
+  static getCipherTable(key, alphabet) {
     const cipherTable = [];
-    const vigenereTable = this._getVigenereTable(alphabet);
+    const vigenereTable = this.getVigenereTable(alphabet);
 
     cipherTable.push(vigenereTable[0]);
 
@@ -52,7 +52,7 @@ export class Vigenere {
     return cipherTable;
   }
 
-  static _getVigenereTable(alphabet) {
+  static getVigenereTable(alphabet) {
     const table = [];
 
     for (let i = 0; i < alphabet.length; i++) {

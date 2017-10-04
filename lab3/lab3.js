@@ -11,13 +11,8 @@ window.L3 = (function() {
     const decryptVigenereForm = document.decryptVigenereForm;
     decryptVigenereForm.key.value = encryptVigenereForm.key.value;
 
-    document.querySelector('#cipherTable').innerHTML = Cipher3._getCipherTable('КЛЮЧ', ALPHABET)
-    .map(arr => `<tr>${arr.map(char => `<td>${char}</td>`).join('')}</tr>`)
-    .join('');
-
-    document.querySelector('#table').innerHTML = Cipher3._getVigenereTable(ALPHABET)
-      .map(arr => `<tr>${arr.map(char => `<td>${char}</td>`).join('')}</tr>`)
-      .join('');
+    generateCipherTable();
+    generateVigenereTable();
 
     encryptVigenere();
   }
@@ -26,6 +21,8 @@ window.L3 = (function() {
     const form = document.encryptVigenereForm;
     const value = form.value.value.toUpperCase();
     const key = form.key.value.toUpperCase();
+
+    generateCipherTable();
 
     form.result.value = Vigenere.encrypt(value, key, ALPHABET);
   }
@@ -36,6 +33,21 @@ window.L3 = (function() {
     const key = form.key.value.toUpperCase();
 
     form.result.value = Vigenere.decrypt(value, key, ALPHABET);
+  }
+
+  function generateVigenereTable() {
+    document.querySelector('#table').innerHTML = Vigenere.getVigenereTable(ALPHABET)
+    .map(arr => `<tr>${arr.map(char => `<td>${char}</td>`).join('')}</tr>`)
+    .join('');
+  }
+
+  function generateCipherTable() {
+    const form = document.encryptVigenereForm;
+    const key = form.key.value.toUpperCase();
+
+    document.querySelector('#cipherTable').innerHTML = Vigenere.getCipherTable(key, ALPHABET)
+    .map(arr => `<tr>${arr.map(char => `<td>${char}</td>`).join('')}</tr>`)
+    .join('');
   }
 
   init();
