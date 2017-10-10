@@ -3,13 +3,9 @@ window.Cipher4 = function() {
     static encryptTransposition(input, key, placeholder) {
       return _(input)
         .chunk(key.length)
-        .map(row => {
-          if (row.length < key.length) {
-            row.push(..._.fill(new Array(key.length - row.length), placeholder));
-          }
-
-          return row;
-        })
+        .map(row => row.length < key.length
+          ? row.concat(_.fill(new Array(key.length - row.length), placeholder))
+          : row)
         .map(row => row.map((char, index) => row[key[index]]))
         .flatten()
         .join('');
