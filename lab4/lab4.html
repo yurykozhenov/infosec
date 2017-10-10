@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Захист інформації</title>
+
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+
+  <body>
+    <a href="../index.html">Назад на головну сторінку</a>
+
+    <h1>Тема №4 - Шифри перестановки</h1>
+
+    <main>
+      <section>
+        <h2>Шифр перестановки</h2>
+
+        <section>
+          <article>
+            <form name="encryptTranspositionForm">
+              <h3>Зашифрувати</h3>
+
+              <div>
+                <label>Ключ</label>
+                <input name="key" onchange="L4.encryptTransposition()">
+              </div>
+
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="L4.encryptTransposition()">
+              </div>
+
+              <div>
+                <label>Результат</label>
+                <input name="result" disabled>
+              </div>
+            </form>
+          </article>
+
+          <article>
+            <form name="decryptTranspositionForm">
+              <h3>Розшифрувати</h3>
+
+              <div>
+                <label>Ключ</label>
+                <input name="key" onchange="L4.decryptTransposition()">
+              </div>
+
+              <div>
+                <label>Значення</label>
+                <input name="value" onchange="L4.decryptTransposition()">
+              </div>
+
+              <div>
+                <label>Результат</label>
+                <textarea name="result" disabled></textarea>
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="../node_modules/lodash/lodash.js"></script>
+    <script src="./lab4-cipher.js"></script>
+    <script src="./lab4-ui.js"></script>
+  </body>
+</html>
