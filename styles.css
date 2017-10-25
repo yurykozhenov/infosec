@@ -51,3 +51,7 @@ td {
   height: 8px;
   border: 1px solid #999999;
 }
+
+input[readonly] {
+  background-color: #f0f0f0;
+}
