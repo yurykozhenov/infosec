@@ -6,26 +6,29 @@ window.L5 = (function() {
     const encryptRSAForm = document.encryptRSAForm;
     encryptRSAForm.p.value = p;
     encryptRSAForm.q.value = q;
-    encryptRSAForm.d.value = d;
+    encryptRSAForm.n.value = n;
     encryptRSAForm.e.value = e;
-    encryptRSAForm.publicKey.value = `(${e}, ${n})`;
-    encryptRSAForm.privateKey.value = `(${d}, ${n})`;
+    encryptRSAForm.d.value = d;
+
+    updateEncryptKeys();
 
     const decryptRSAForm = document.decryptRSAForm;
     decryptRSAForm.p.value = p;
     decryptRSAForm.q.value = q;
-    decryptRSAForm.d.value = d;
+    decryptRSAForm.n.value = n;
     decryptRSAForm.e.value = e;
-    decryptRSAForm.publicKey.value = `(${e}, ${n})`;
-    decryptRSAForm.privateKey.value = `(${d}, ${n})`;
+    decryptRSAForm.d.value = d;
+
+    updateDecryptKeys();
   }
 
   function encryptRSA() {
     const form = document.encryptRSAForm;
     const p = Number(form.p.value);
     const q = Number(form.q.value);
+    const n = Number(form.n.value);
     const e = Number(form.e.value);
-    const n = p * q;
+    const d = Number(form.d.value);
 
     const file = form.value.files[0];
 
@@ -50,8 +53,9 @@ window.L5 = (function() {
     const form = document.decryptRSAForm;
     const p = Number(form.p.value);
     const q = Number(form.q.value);
+    const n = Number(form.n.value);
+    const e = Number(form.e.value);
     const d = Number(form.d.value);
-    const n = p * q;
 
     const file = form.value.files[0];
 
@@ -72,10 +76,36 @@ window.L5 = (function() {
     fileReader.readAsText(file);
   }
 
+  function updateEncryptKeys() {
+    const form = document.encryptRSAForm;
+    const p = Number(form.p.value);
+    const q = Number(form.q.value);
+    const n = Number(form.n.value);
+    const e = Number(form.e.value);
+    const d = Number(form.d.value);
+
+    form.publicKey.value = `(${e}, ${n})`;
+    form.privateKey.value = `(${d}, ${n})`;
+  }
+
+  function updateDecryptKeys() {
+    const form = document.decryptRSAForm;
+    const p = Number(form.p.value);
+    const q = Number(form.q.value);
+    const n = Number(form.n.value);
+    const e = Number(form.e.value);
+    const d = Number(form.d.value);
+
+    form.publicKey.value = `(${e}, ${n})`;
+    form.privateKey.value = `(${d}, ${n})`;
+  }
+
   init();
 
   return {
     encryptRSA,
     decryptRSA,
+    updateEncryptKeys,
+    updateDecryptKeys,
   }
 })();
