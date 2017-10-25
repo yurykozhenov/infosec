@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Захист інформації</title>
+
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+
+  <body>
+    <a href="../index.html">Назад на головну сторінку</a>
+
+    <h1>Тема №5 - Системи з відкритим ключем. Криптосистема RSA</h1>
+
+    <main>
+      <section>
+        <h2>RSA</h2>
+
+        <section>
+          <article>
+            <form name="encryptRSAForm">
+              <h3>Зашифрувати</h3>
+
+              <div>
+                <label>Файл</label>
+                <input type="file" name="value" onchange="L5.encryptRSA()">
+              </div>
+
+              <div>
+                <label>p</label>
+                <input name="p" readonly>
+              </div>
+
+              <div>
+                <label>q</label>
+                <input name="q" readonly>
+              </div>
+
+              <div>
+                <label>d</label>
+                <input name="d" readonly>
+              </div>
+
+              <div>
+                <label>e</label>
+                <input name="e" readonly>
+              </div>
+
+              <div>
+                <label>Публічний ключ</label>
+                <input name="publicKey" readonly>
+              </div>
+
+              <div>
+                <label>Приватний ключ</label>
+                <input name="privateKey" readonly>
+              </div>
+            </form>
+          </article>
+
+          <article>
+            <form name="decryptRSAForm">
+              <h3>Розшифрувати</h3>
+
+              <div>
+                <label>Файл</label>
+                <input type="file" name="value" onchange="L5.decryptRSA()">
+              </div>
+
+              <div>
+                <label>p</label>
+                <input name="p" readonly>
+              </div>
+
+              <div>
+                <label>q</label>
+                <input name="q" readonly>
+              </div>
+
+              <div>
+                <label>d</label>
+                <input name="d" readonly>
+              </div>
+
+              <div>
+                <label>e</label>
+                <input name="e" readonly>
+              </div>
+
+              <div>
+                <label>Публічний ключ</label>
+                <input name="publicKey" readonly>
+              </div>
+
+              <div>
+                <label>Приватний ключ</label>
+                <input name="privateKey" readonly>
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="../node_modules/mathjs/dist/math.js"></script>
+    <script src="lab5-cipher.js"></script>
+    <script src="lab5-ui.js"></script>
+  </body>
+</html>
