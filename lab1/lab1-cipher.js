@@ -21,7 +21,7 @@ window.Cipher1 = function() {
     }
 
     static decryptMultiplicative(value, key, alphabet) {
-      if (this.inverseMultiplicativeKey(key, alphabet) == null) {
+      if (findMultiplicativeInverse(key, alphabet.length) == null) {
         return '-';
       }
 
@@ -37,7 +37,7 @@ window.Cipher1 = function() {
     }
 
     static decryptAffine(value, key1, key2, alphabet) {
-      if (this.inverseMultiplicativeKey(key1, alphabet) == null) {
+      if (findMultiplicativeInverse(key1, alphabet.length) == null) {
         return '-';
       }
 
