@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Захист інформації</title>
+
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+
+  <body>
+    <a href="../index.html">Назад на головну сторінку</a>
+
+    <h1>Тема №6 - Електронний цифровий підпис. Алгоритм Ель-Гамаля</h1>
+
+    <main>
+      <section>
+        <h2>RSA</h2>
+
+        <section>
+          <article>
+            <form name="signRSAForm">
+              <h3>Підписати</h3>
+
+              <div>
+                <label>Файл</label>
+                <input type="file" name="value" onchange="L6.signRSA()">
+              </div>
+
+              <div>
+                <label>n</label>
+                <input name="n" onchange="L6.updateSignRSAKeys()">
+              </div>
+
+              <div>
+                <label>e</label>
+                <input name="e" onchange="L6.updateSignRSAKeys()">
+              </div>
+
+              <div>
+                <label>d</label>
+                <input name="d" onchange="L6.updateSignRSAKeys()">
+              </div>
+
+              <div>
+                <label>Відкритий ключ</label>
+                <input name="publicKey" readonly>
+              </div>
+
+              <div>
+                <label>Закритий ключ</label>
+                <input name="privateKey" readonly>
+              </div>
+
+              <div>
+                <label>Згенерований цифровий підпис</label>
+                <input name="s" readonly>
+              </div>
+            </form>
+          </article>
+
+          <article>
+            <form name="verifyRSAForm">
+              <h3>Перевірити</h3>
+
+              <div>
+                <label>Файл</label>
+                <input type="file" name="value" onchange="L6.verifyRSA()">
+              </div>
+
+              <div>
+                <label>n</label>
+                <input name="n" onchange="L6.updateVerifyRSAKeys()">
+              </div>
+
+              <div>
+                <label>e</label>
+                <input name="e" onchange="L6.updateVerifyRSAKeys()">
+              </div>
+
+              <div>
+                <label>Відкритий ключ</label>
+                <input name="publicKey" readonly>
+              </div>
+
+              <div>
+                <label>Цифровий підпис</label>
+                <input name="s">
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
+
+      <section>
+        <h2>Алгоритм Ель-Гамаля</h2>
+
+        <section>
+          <article>
+            <form name="signElgamalForm">
+              <h3>Підписати</h3>
+
+              <div>
+                <label>Файл</label>
+                <input type="file" name="value" onchange="L6.signElgamal()">
+              </div>
+
+              <div>
+                <label>p</label>
+                <input name="p">
+              </div>
+
+              <div>
+                <label>g</label>
+                <input name="g">
+              </div>
+
+              <div>
+                <label>x (Закритий ключ)</label>
+                <input name="x">
+              </div>
+
+              <div>
+                <label>y (Відкритий ключ)</label>
+                <input name="y">
+              </div>
+
+              <div>
+                <label>Згенероване a</label>
+                <input name="a" readonly>
+              </div>
+
+              <div>
+                <label>Згенероване b</label>
+                <input name="b" readonly>
+              </div>
+            </form>
+          </article>
+
+          <article>
+            <form name="verifyElgamalForm">
+              <h3>Перевірити</h3>
+
+              <div>
+                <label>Файл</label>
+                <input type="file" name="value" onchange="L6.verifyElgamal()">
+              </div>
+
+              <div>
+                <label>p</label>
+                <input name="p">
+              </div>
+
+              <div>
+                <label>g</label>
+                <input name="g">
+              </div>
+
+              <div>
+                <label>y (Відкритий ключ)</label>
+                <input name="y">
+              </div>
+
+              <div>
+                <label>a</label>
+                <input name="a">
+              </div>
+
+              <div>
+                <label>b</label>
+                <input name="b">
+              </div>
+            </form>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="../node_modules/mathjs/dist/math.js"></script>
+    <script src="../node_modules/blueimp-md5/js/md5.js"></script>
+    <script src="../utils.js"></script>
+    <script src="../lab5/lab5-cipher.js"></script>
+    <script src="./lab6-cipher.js"></script>
+    <script src="./lab6-ui.js"></script>
+  </body>
+</html>

@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "blueimp-md5": "^2.10.0",
     "lodash": "^4.17.4",
     "mathjs": "^3.16.5",
     "serve": "^6.0.6"
